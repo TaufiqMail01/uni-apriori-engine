@@ -1,0 +1,19 @@
+/* Custom CSS tambahan untuk styling dan cetak PDF */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #printableArea, #printableArea * {
+        visibility: visible;
+    }
+    #printableArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    /* Sembunyikan tombol aksi saat dicetak */
+    #downloadPdfBtn, #downloadExcelBtn {
+        display: none !important;
+    }
+}
