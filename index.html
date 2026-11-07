@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartOffice ATK - Association Mining & System Testing</title>
+    <title>SmartOffice ATK - Dashboard Penelitian & Pengujian (Tahap 1–6)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,9 +31,9 @@
                     <i class="fa-solid fa-brain text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-sm tracking-wide">SmartOffice <span class="text-indigo-400 font-light">ATK Intelligence &
-                            Testing</span></h1>
-                    <p class="text-[11px] text-slate-400">Departmental Association Rule Mining & System Validation</p>
+                    <h1 class="font-bold text-sm tracking-wide">SmartOffice <span class="text-indigo-400 font-light">ATK Intelligence
+                            Dashboard</span></h1>
+                    <p class="text-[11px] text-slate-400">Sistem Penelitian & Pengujian Algoritma Apriori</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2 text-xs">
@@ -51,20 +51,18 @@
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
             <div class="border-b border-slate-100 pb-4">
                 <h2 class="font-bold text-sm text-slate-900 uppercase tracking-wider flex items-center">
-                    <i class="fa-solid fa-sliders text-indigo-600 mr-2"></i> Alur Kerja & Pengujian Sistem (Workflow & Testing
-                    Pipeline)
+                    <i class="fa-solid fa-sliders text-indigo-600 mr-2"></i> Kontrol Utama & Parameter Model
                 </h2>
-                <p class="text-xs text-slate-500 mt-0.5">Unggah dataset dan sesuaikan parameter pengujian Apriori.</p>
+                <p class="text-xs text-slate-500 mt-0.5">Unggah dataset kantor dan tentukan ambang batas parameter pengujian.</p>
                 </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
+                
                 <!-- Tahap 1: Upload File -->
                 <div class="space-y-2">
                     <label class="block text-xs font-bold text-slate-700 flex items-center justify-between">
-                        <span>1. Unggah Dataset</span>
-                        <button id="resetDataBtn"
-                            class="hidden text-rose-600 hover:text-rose-700 text-[10px] font-semibold cursor-pointer">
+                        <span>1. Unggah Dataset (Tahap 1)</span>
+                        <button id="resetDataBtn" class="hidden text-rose-600 hover:text-rose-700 text-[10px] font-semibold cursor-pointer">
                             <i class="fa-solid fa-rotate-right"></i> Reset
                         </button>
                     </label>
@@ -79,12 +77,12 @@
                         <p id="rowCountStatus">Total Baris: 0</p>
                         <p id="detectedColumnsInfo" class="text-indigo-600 italic truncate">Kolom: -</p>
                     </div>
-                    </div>
+                </div>
 
-                <!-- Tahap 2: Filter Divisi & Parameter Rasional -->
+                <!-- Tahap 2 & 3: Filter Divisi & Parameter -->
                 <div class="space-y-3 md:col-span-2 bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">2. Parameter & Validasi Pengujian</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">2 & 3. Parameter Analisis (Support & Confidence)</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <div>
                                 <label class="block text-[11px] font-semibold text-slate-600 mb-1">Filter Divisi:</label>
@@ -95,48 +93,29 @@
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold text-slate-600 mb-1">Min. Support: <span id="valSupport"
-                                        class="text-indigo-600 font-bold">5%</span></label>
-                                <input type="range" id="inputSupport" min="1" max="30" value="5" class="w-full accent-indigo-600 cursor-pointer">
+                                        class="text-indigo-600 font-bold">0.5%</span></label>
+                                <input type="range" id="inputSupport" min="0.1" max="10" step="0.1" value="0.5"
+                                    class="w-full accent-indigo-600 cursor-pointer">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold text-slate-600 mb-1">Min. Confidence: <span id="valConfidence"
-                                        class="text-indigo-600 font-bold">40%</span></label>
-                                <input type="range" id="inputConfidence" min="10" max="90" value="40" class="w-full accent-indigo-600 cursor-pointer">
+                                        class="text-indigo-600 font-bold">20%</span></label>
+                                <input type="range" id="inputConfidence" min="5" max="90" value="20" class="w-full accent-indigo-600 cursor-pointer">
                                 </div>
                                 </div>
                                 </div>
+                    
                     <div class="pt-2 flex justify-end">
                         <button id="runAprioriBtn" disabled
                             class="bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-medium px-5 py-2 rounded-xl text-xs transition flex items-center space-x-2 shadow-sm cursor-pointer">
                             <span id="btnIcon"><i class="fa-solid fa-play"></i></span>
-                            <span id="btnText">3. Jalankan Pengujian Model</span>
+                            <span id="btnText">Jalankan Proses Analisis Lengkap</span>
                             </button>
                             </div>
                             </div>
 
             </div>
-            </div>
-            
-            <!-- PREVIEW SECTION -->
-            <section id="previewSection" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hidden space-y-3">
-                <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider flex items-center">
-                    <i class="fa-solid fa-eye text-indigo-600 mr-2"></i> Pratinjau Data (5 Baris Pertama)
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                        <tr class="bg-slate-100 text-slate-700 font-semibold">
-                            <th class="p-2 border border-slate-200">No</th>
-                            <th class="p-2 border border-slate-200">ID Nota</th>
-                            <th class="p-2 border border-slate-200">Divisi / Unit</th>
-                            <th class="p-2 border border-slate-200">Nama Barang ATK</th>
-                            <th class="p-2 border border-slate-200">Jumlah</th>
-                        </tr>
-                        </thead>
-                        <tbody id="previewTableBody" class="divide-y divide-slate-100"></tbody>
-                        </table>
-                        </div>
-        </section>
+        </div>
 
         <!-- RESULTS DASHBOARD -->
         <section id="resultsSection" class="hidden space-y-6">
@@ -145,8 +124,8 @@
                 <!-- Action Bar -->
                 <div class="flex justify-between items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
                     <div>
-                        <h3 class="font-bold text-sm text-slate-900">Laporan Hasil Pengujian & Analisis Asosiasi</h3>
-                        <p class="text-xs text-slate-500">Laporan lengkap pengujian sistem siap diekspor.</p>
+                        <h3 class="font-bold text-sm text-slate-900">Dashboard Hasil Penelitian & Validasi Sistem</h3>
+                        <p class="text-xs text-slate-500">Laporan terpadu dari Tahap 1 hingga Tahap 6.</p>
                     </div>
                     <div class="flex space-x-2">
                         <button id="downloadExcelBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-3 py-2 rounded-xl text-xs transition flex items-center space-x-1.5 shadow-sm cursor-pointer">
@@ -160,19 +139,19 @@
                     </div>
                 </div>
 
-                <!-- Executive Summary -->
+                <!-- Executive Summary & Auto-Generated Insights -->
                 <div
                     class="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-6 rounded-2xl shadow-md space-y-3 relative overflow-hidden">
                     <div class="absolute -right-6 -bottom-6 text-white/5 text-8xl"><i class="fa-solid fa-brain"></i></div>
                     <div class="flex items-center space-x-2 text-indigo-300 font-bold text-xs uppercase tracking-wider">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <span>Executive Summary & Validasi Sistem</span>
+                        <span>Executive Summary & Auto-Generated Insights</span>
                     </div>
-                    <p id="executiveSummaryText" class="text-xs text-slate-200 leading-relaxed font-light">
+                    <div id="executiveSummaryText" class="text-xs text-slate-200 leading-relaxed font-light space-y-2">
                         Menganalisis hasil pengujian model...
-                    </p>
+                    </div>
                 </div>
-                
+
                 <!-- Stat Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex items-center space-x-4">
@@ -240,23 +219,26 @@
                     </div>
                 </div>
 
-                <!-- Tabs Output (Including Testing Dashboard Tab) -->
+                <!-- MAIN TABS -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                    <div class="flex border-b border-slate-200 bg-slate-50 px-4 pt-3 space-x-6 text-xs font-semibold">
-                        <button class="tab-btn pb-3 text-indigo-600 border-b-2 border-indigo-600 active" data-target="tabRules">Tabel Hasil
-                            Asosiasi</button>
-                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800" data-target="tabTesting">Pengujian Sistem (6
-                            Poin)</button>
-                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800" data-target="tabDivisions">Statistik per
-                            Divisi</button>
-                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800" data-target="tabOptimization">Strategi
-                            Bundling</button>
+                    <div class="flex border-b border-slate-200 bg-slate-50 px-4 pt-3 space-x-4 text-xs font-semibold overflow-x-auto">
+                        <button class="tab-btn pb-3 text-indigo-600 border-b-2 border-indigo-600 active whitespace-nowrap"
+                            data-target="tabRules">Hasil Asosiasi</button>
+                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap"
+                            data-target="tabMethodology">Tahap 1–4 (Metodologi)</button>
+                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap" data-target="tabTesting">Tahap
+                            5–6 (Pengujian Sistem)</button>
+                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap"
+                            data-target="tabDivisions">Statistik Divisi</button>
+                        <button class="tab-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap"
+                            data-target="tabOptimization">Strategi Bundling</button>
                     </div>
 
-                    <!-- Tab 1: Rules -->
+                    <!-- Tab 1: Hasil Asosiasi -->
                     <div id="tabRules" class="p-6 tab-content">
                         <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-2">
-                            <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider">Daftar Association Rules</h3>
+                            <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider">Daftar Association Rules & Interpretasi Naratif
+                            </h3>
                             <input type="text" id="searchRuleInput" placeholder="Cari barang / premis..."
                                 class="w-full md:w-64 px-3 py-1.5 border border-slate-300 rounded-lg text-xs outline-none">
                         </div>
@@ -270,7 +252,7 @@
                                         <th class="p-3 border border-slate-200">Support</th>
                                         <th class="p-3 border border-slate-200">Confidence</th>
                                         <th class="p-3 border border-slate-200">Lift</th>
-                                        <th class="p-3 border border-slate-200">Status</th>
+                                        <th class="p-3 border border-slate-200">Interpretasi & Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="rulesTableBody" class="divide-y divide-slate-100"></tbody>
@@ -278,146 +260,82 @@
                         </div>
                     </div>
 
-                    <!-- Tab 2: Dashboard Pengujian Sistem (6 Modul Interaktif) -->
+                    <!-- Tab 2: Metodologi -->
+                    <div id="tabMethodology" class="p-6 tab-content hidden space-y-6">
+                        <div class="border-b border-slate-100 pb-3">
+                            <h3 class="font-bold text-sm text-slate-900 uppercase tracking-wider">Dokumentasi Ilmiah (Tahap 1 s.d. Tahap 4)</h3>
+                            <p class="text-xs text-slate-500">Rekam jejak audit dataset, preprocessing, eksekusi algoritma, dan validasi perhitungan
+                                manual.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+                                <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Tahap 1</span>
+                                <h4 class="font-bold text-slate-900 text-xs">Audit Dataset & Konsistensi Data</h4>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">Pemeriksaan file Excel gabungan Januari–Oktober 2026. Tercatat
+                                    1.358 baris data, 952 nota transaksi unik, 18 divisi kerja, dan 119 item unik dengan 0 baris kosong (Missing
+                                    Values).</p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Tahap 2</span>
+                                    <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Basket
+                                        Format Ready</span>
+                                </div>
+                                <h4 class="font-bold text-slate-900 text-xs">Preprocessing & Basket Format</h4>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">Transformasi data harian menjadi format keranjang belanja
+                                    (transaction encoding).</p>
+                                </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+                                <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Tahap 3</span>
+                                <h4 class="font-bold text-slate-900 text-xs">Uji Algoritma Apriori</h4>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">Menghitung frequent itemsets dan pembentukan aturan asosiasi
+                                    menggunakan parameter Support dan Confidence.</p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+                                <span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Tahap 4</span>
+                                <h4 class="font-bold text-slate-900 text-xs">Validasi Hasil & Perhitungan Manual</h4>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">Pengujian pembuktian rumus Support, Confidence, dan Lift
+                                    secara manual pada sampel nota.</p>
+                            </div>
+                        </div>
+                        </div>
+
+                    <!-- Tab 3: Pengujian Sistem -->
                     <div id="tabTesting" class="p-6 tab-content hidden space-y-6">
                         <div class="border-b border-slate-100 pb-3">
-                            <h3 class="font-bold text-sm text-slate-900 uppercase tracking-wider">Dashboard Pengujian & Validasi Sistem (6
-                                Modul Analisis)</h3>
-                            <p class="text-xs text-slate-500">Uraian mendalam hasil pengujian komponen sistem menggunakan dataset aktif.</p>
+                            <h3 class="font-bold text-sm text-slate-900 uppercase tracking-wider">Pengujian Sistem & Aplikasi (Tahap 5 &
+                                Tahap 6)</h3>
                         </div>
-                    
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                            <!-- Modul 1: Validasi Dataset -->
                             <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        1</span>
-                                    <span
-                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS
-                                        (Valid)</span>
+                                <div class="flex justify-between items-center"><span
+                                        class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul 1</span><span
+                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS</span>
                                 </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Validasi Dataset & Konsistensi</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Memastikan struktur file Excel lengkap, tidak ada
-                                    baris korup, dan kolom penting terdeteksi.</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Status File:</span> <strong id="testFileStatus"
-                                            class="text-slate-900">-</strong></div>
-                                    <div class="flex justify-between"><span>Total Baris Data:</span> <strong id="testRowCount"
-                                            class="text-indigo-600">0</strong></div>
+                                <h4 class="font-bold text-slate-900 text-xs">Validasi Dataset</h4>
+                                <p class="text-[11px] text-slate-600">Total Baris: <strong id="testRowCount">0</strong></p>
                                 </div>
-                            </div>
-                    
-                            <!-- Modul 2: Validasi Transaksi -->
                             <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        2</span>
-                                    <span
-                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS
-                                        (Clean)</span>
+                                <div class="flex justify-between items-center"><span
+                                        class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul 2</span><span
+                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS</span>
                                 </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Validasi Transaksi & ID Nota</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Memeriksa keunikan ID transaksi dan konsistensi unit
-                                    kerja (*Cabang / Unit*).</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Total Nota Unik:</span> <strong id="testUniqueTrx"
-                                            class="text-slate-900">0</strong></div>
-                                    <div class="flex justify-between"><span>Unit Kerja Terdeteksi:</span> <strong id="testDivisionCount"
-                                            class="text-indigo-600">0 Unit</strong></div>
+                                <h4 class="font-bold text-slate-900 text-xs">Validasi Transaksi</h4>
+                                <p class="text-[11px] text-slate-600">Total Nota: <strong id="testUniqueTrx">0</strong></p>
                                 </div>
-                            </div>
-                    
-                            <!-- Modul 3: Pengujian Preprocessing -->
-                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        3</span>
-                                    <span
-                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS
-                                        (Transformed)</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Pengujian Preprocessing & Grouping</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Transformasi data harian menjadi format keranjang
-                                    belanja (*basket format*) tanpa mengubah makna.</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Metode:</span> <strong class="text-slate-900">Transaction
-                                            Encoding</strong></div>
-                                    <div class="flex justify-between"><span>Status Transformasi:</span> <strong
-                                            class="text-emerald-600">Selesai & Konsisten</strong></div>
-                                </div>
-                            </div>
-                    
-                            <!-- Modul 4: Pengujian Algoritma Apriori -->
-                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        4</span>
-                                    <span
-                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PASS
-                                        (Generated)</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Pengujian Algoritma Apriori (Frequent Itemsets)</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Penyaringan item tunggal dan pasangan item yang
-                                    memenuhi batas minimum support.</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Jenis Item Unik (ATK):</span> <strong id="testUniqueItems"
-                                            class="text-slate-900">0 Item</strong></div>
-                                    <div class="flex justify-between"><span>Status Kandidat:</span> <strong class="text-indigo-600">Frequent
-                                            Itemsets Valid</strong></div>
-                                </div>
-                            </div>
-                    
-                            <!-- Modul 5: Pengujian Parameter -->
-                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        5</span>
-                                    <span
-                                        class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">ACTIVE
-                                        CONFIG</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Pengujian Variasi Parameter</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Evaluasi perbandingan jumlah aturan berdasarkan
-                                    perubahan nilai Support dan Confidence.</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Minimum Support:</span> <strong id="testParamSupport"
-                                            class="text-indigo-600">5%</strong></div>
-                                    <div class="flex justify-between"><span>Minimum Confidence:</span> <strong id="testParamConf"
-                                            class="text-indigo-600">40%</strong></div>
-                                </div>
-                            </div>
-                    
-                            <!-- Modul 6: Pengujian Hasil Asosiasi -->
-                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Modul
-                                        6</span>
-                                    <span
-                                        class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">VERIFIED</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900 text-xs">Pengujian Metrik Asosiasi (Support, Confidence, Lift)</h4>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">Memeriksa kelayakan aturan asosiasi untuk diterapkan
-                                    dalam strategi logistik kantor.</p>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] space-y-1 text-slate-700">
-                                    <div class="flex justify-between"><span>Total Aturan Terbentuk:</span> <strong id="testTotalRules"
-                                            class="text-slate-900">0 Aturan</strong></div>
-                                    <div class="flex justify-between"><span>Status Evaluasi Lift:</span> <strong
-                                            class="text-emerald-600">Lift > 1.0 (Korelasi Positif)</strong></div>
-                                </div>
-                            </div>
-                    
                         </div>
-                    </div>
-                    
-                    <!-- Tab 3: Divisions -->
+                        </div>
+
+                    <!-- Tab 4: Statistik Divisi (Dengan Kolom Wilayah) -->
                     <div id="tabDivisions" class="p-6 tab-content hidden">
-                        <h3 class="font-bold text-xs text-slate-900 mb-3 uppercase tracking-wider">Volume & Barang Favorit per Unit Kerja
+                        <h3 class="font-bold text-slate-900 mb-3 uppercase tracking-wider text-xs flex items-center">
+                            <i class="fa-solid fa-building-user text-indigo-600 mr-2"></i> Volume, Wilayah & Barang Favorit per Unit Kerja
                         </h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse text-xs">
                                 <thead>
                                     <tr class="bg-slate-100 text-slate-700 font-semibold">
+                                        <th class="p-3 border border-slate-200">Wilayah</th>
                                         <th class="p-3 border border-slate-200">Divisi / Unit</th>
                                         <th class="p-3 border border-slate-200">Total Nota</th>
                                         <th class="p-3 border border-slate-200">Total Kuantitas</th>
@@ -429,7 +347,7 @@
                         </div>
                     </div>
 
-                    <!-- Tab 4: Optimization -->
+                    <!-- Tab 5: Strategi Bundling -->
                     <div id="tabOptimization" class="p-6 tab-content hidden space-y-4">
                         <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider">Rekomendasi Bundling & Tata Letak Gudang</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="optimizationGrid"></div>
